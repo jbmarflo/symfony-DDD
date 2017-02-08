@@ -2,10 +2,10 @@
 {% block container %}
     {{texto}}
     <hr/>
-    {{fruits.pera == "rica"}}
-    {% if %}
-    {% ifend %}
-    {{fruits.manzana}}
+    {% if fruits.pera ends with "a"%}
+        {{fruits.manzana}}
+    {% endif %}
+
     <hr/>
     {% set variable = "HOla Twig" %}
     {{ variable }}
@@ -17,4 +17,18 @@
         {% endfor %}
     {% endif %}
     </ul>
+    <hr/>
+    {% set date = date("-2 days", "Europe/Madrid") %}
+    {{ dump(date) }}
+    <hr/>
+    {{ include('AppBundle::pruebas/partial.html.twig') }}
+    {{ min(52,1,65) }}
+    <hr/>
+    {{ random(20) }}
+    <hr/>
+    {{ random(['Batcman', 'Superman', 'Spiderman']) }}
+    <hr/>
+    {%  for i in range(0,24,4) %}
+        {{ i }}<br>
+    {% endfor %}
 {% endblock %}
