@@ -1,0 +1,10 @@
+mi:
+    resource: "@MiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+rutas_bundle:
+  resource: "@AppBundle/Resources/config/routing.yml"
+  prefix: /
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

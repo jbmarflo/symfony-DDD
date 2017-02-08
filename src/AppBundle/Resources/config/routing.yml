@@ -1,0 +1,8 @@
+pruebas_index:
+  path: /pruebas/{lang}/{name}/{page}
+  defaults: {_controller: AppBundle:Pruebas:index, lang: es,name: nombre_por_defecto, page: 1}
+  methods: [GET, POST]
+  requirements:
+    lang: es|en|fr
+    name: "[a-zA-z]*" ##\w+
+    page: \d+
