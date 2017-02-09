@@ -19,7 +19,10 @@
     </ul>
     <hr/>
     {% set date = date("-2 days", "Europe/Madrid") %}
+    {% set texto = '   sdfasdf, asdf, asdf,asdf,sdf,   ,' %}
     {{ dump(date) }}
+    {{ date|date("d-m-y") }}
+    {{ texto|trim(",") }}
     <hr/>
     {{ include('AppBundle::pruebas/partial.html.twig') }}
     {{ min(52,1,65) }}
@@ -31,4 +34,10 @@
     {%  for i in range(0,24,4) %}
         {{ i }}<br>
     {% endfor %}
+    <hr/>
+    {{ generateTable(products)|raw }}
+    <hr/>
+
+    {{ "cadena de texto"|addText }}
+
 {% endblock %}

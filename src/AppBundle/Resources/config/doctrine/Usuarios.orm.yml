@@ -1,0 +1,60 @@
+AppBundle\Entity\Usuarios:
+    type: entity
+    table: usuarios
+    uniqueConstraints:
+        email:
+            columns:
+                - email
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        surname:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        alternative:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
