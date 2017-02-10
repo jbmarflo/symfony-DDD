@@ -26,7 +26,7 @@
         "symfony/monolog-bundle": "^3.0.2",
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
+        "sensio/framework-extra-bundle": "^3.0",
         "incenteev/composer-parameter-handler": "^2.0"
     },
     "require-dev": {
@@ -47,7 +47,8 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts"
-        ]
+        ],
+        "test" : "phpunit"
     },
     "extra": {
         "symfony-app-dir": "app",

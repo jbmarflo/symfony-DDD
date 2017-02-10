@@ -2,43 +2,28 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Project
- *
- * @ORM\Table(name="project")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  */
 class Project
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="titulo", type="string", length=255)
      */
     private $titulo;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255)
      */
-    private $description;
+    private $descripcion;
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="precio", type="float")
      */
     private $precio;
 
@@ -78,27 +63,27 @@ class Project
     }
 
     /**
-     * Set description
+     * Set descripcion
      *
-     * @param string $description
+     * @param string $descripcion
      *
      * @return Project
      */
-    public function setDescription($description)
+    public function setDescripcion($descripcion)
     {
-        $this->description = $description;
+        $this->descripcion = $descripcion;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get descripcion
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescripcion()
     {
-        return $this->description;
+        return $this->descripcion;
     }
 
     /**

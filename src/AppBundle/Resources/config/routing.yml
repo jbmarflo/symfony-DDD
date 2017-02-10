@@ -6,3 +6,35 @@ pruebas_index:
     lang: es|en|fr
     name: "[a-zA-z]*" ##\w+
     page: \d+
+
+pruebas_create:
+  path: /pruebas/create
+  defaults: {_controller: AppBundle:Pruebas:create}
+
+pruebas_read:
+  path: /pruebas/read
+  defaults: {_controller: AppBundle:Pruebas:read}
+
+pruebas_update:
+  path: /pruebas/update/{id}/{title}/{description}/{price}
+  defaults: {_controller: AppBundle:Pruebas:update}
+
+pruebas_delete:
+  path: /pruebas/delete/{id}
+  defaults: {_controller: AppBundle:Pruebas:delete}
+
+pruebas_native:
+  path: /pruebas/native
+  defaults: {_controller: AppBundle:Pruebas:nativeSql}
+
+pruebas_queryDql:
+  path: /pruebas/querydql
+  defaults: {_controller: AppBundle:Pruebas:queryDql}
+
+pruebas_querybuilder:
+  path: /pruebas/querybuilder
+  defaults: {_controller: AppBundle:Pruebas:queryBuilder}
+
+pruebas_form:
+  path: /pruebas/form
+  defaults: {_controller: AppBundle:Pruebas:form}
