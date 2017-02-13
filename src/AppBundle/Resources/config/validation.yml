@@ -1,0 +1,8 @@
+AppBundle\Entity\Album:
+  properties:
+    artist:
+      - NotBlank: {message: "EL nombre del artista no puede estara vacío"}
+      - Length: {min: 2, minMessage: "EL nombre artìstico debe tener  mas de dos  caracteres"}
+    title:
+      - NotBlank: {message: "EL título no puede estara vacío"}
+      - Length: {min: 2, minMessage: "EL titulo debe tener  mas de dos  caracteres"}

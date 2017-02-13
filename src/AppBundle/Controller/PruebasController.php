@@ -14,6 +14,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\AlbumType;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\Email;
+
 class PruebasController extends Controller
 {
 
@@ -175,12 +178,47 @@ class PruebasController extends Controller
     }
 
     #### Com un formulario
-    public function formAction()
+    public function formAction(Request $request)
     {
+        //   /doc/current/best_practices/forms.html
+        //   /doc/current/book/validation.html
         $album = new Album();
         $form = $this->createForm(AlbumType::class,$album);
+
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $status = 'Formulario valido';
+            $data = [
+                "artist" =>  $form->get("artist")->getData(),
+                "title" => $form->get("title")->getData()
+            ];
+        }else{
+            $status = null;
+            $data = null;
+        }
         return  $this->render('AppBundle:pruebas:form.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'status' => $status,
+            'data' => $data
         ));
+    }
+
+    public function validateEmailAction($email)
+    {
+        $emailConstraint =  new Email();
+        $emailConstraint->message = "Pasame un correo correcto";
+
+        $error = $this->get("validator")->validate(
+            $email,
+            $emailConstraint
+        );
+
+        if(count($error) == 0){
+            echo "correo valido";
+        }else{
+            echo $error[0]->getMessage();
+        }
+
+        exit();
     }
 }

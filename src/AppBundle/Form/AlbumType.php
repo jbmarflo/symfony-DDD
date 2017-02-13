@@ -3,7 +3,9 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 #usar para formulario
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,10 +21,20 @@ class AlbumType extends AbstractType
     {
         $builder
             ->add('artist', TextType::class, ['required' => 'required', 'attr' => [
-                'class' => 'form-control',
-                'name' => 'artistdd'
+                'class' => 'form-control'
             ]])
-            ->add('title',TextType::class)
+//            ->add('title',TextType::class)
+//            ->add('title',ChoiceType::class, [
+//                "choices" => [
+//                    "hombre" => "Hombre",
+//                    "mujer" => "Mujer",
+//                    "cosa" => "Cosa"
+//                ]
+//            ])
+            ->add('title',CheckboxType::class, [
+                "label" => "Mostrat precio?",
+                "required" => true
+            ])
             ->add('Guardar', SubmitType::class);
     }
     

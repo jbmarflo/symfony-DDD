@@ -1,11 +1,13 @@
 {% extends "::layout.html.twig" %}
 {% block container %}
     <h2 class="text-center">Agregar album</h2>
-    {{ form_start(form,{'action':'', 'method':'POST'}) }}
-    <label>
-        {{ form_errors(form.artist) }}
-        {{ form_errors(form.title) }}
-    </label>
 
+    {% if (status != null) and (data != null) %}
+        <h3>{{ status }}</h3>
+        {{ dump(data) }}
+    {% endif %}
+    {{ form_start(form,{'action':'', 'method':'POST'}) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
     {{ form_end(form) }}
 {% endblock %}
