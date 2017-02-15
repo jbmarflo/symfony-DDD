@@ -1,0 +1,71 @@
+Entry:
+    type: entity
+    table: entry
+    indexes:
+        fk_entry_id_user:
+            columns:
+                - id_user
+        fk_entry_id_category:
+            columns:
+                - id_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+    manyToOne:
+        idCategory:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        entryTag:
+            targetEntity: EntryTag
+            mappedBy: entry
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

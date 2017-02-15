@@ -1,3 +1,7 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mi:
     resource: "@MiBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,41 @@
+EntryTag:
+    type: entity
+    table: entry_tag
+    indexes:
+        fk_entry_tag_id_entry:
+            columns:
+                - id_entry
+        fk_entry_tag_id_tag:
+            columns:
+                - id_tag
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idEntry:
+            targetEntity: Entry
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: EntryTag ##indicar que va a usar la entidad
+            joinColumns:
+                id_entry:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idTag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tag:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

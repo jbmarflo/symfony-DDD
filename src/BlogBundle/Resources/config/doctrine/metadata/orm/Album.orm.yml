@@ -1,0 +1,26 @@
+Album:
+    type: entity
+    table: album
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        artist:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
